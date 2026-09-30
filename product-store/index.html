@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hashir's Tech Corner — browse gadgets and accessories.">
+    <title>Hashir's Tech Corner | Products</title>
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html">
+                <img src="images/logo.svg" alt="" width="34" height="34">
+                <span>Hashir's <strong>Tech Corner</strong></span>
+            </a>
+            <nav aria-label="Main">
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <p class="eyebrow">Gadgets &amp; accessories</p>
+                <h1>Find your next favourite gadget.</h1>
+                <p class="lead">Headphones, smart watches, gaming gear and more. Search, filter by category and sort by price to find what you need.</p>
+            </div>
+        </section>
+
+        <!-- TOOLBAR: search, categories, sort -->
+        <section id="products" class="container">
+            <div class="toolbar" role="search">
+                <label class="search">
+                    <span class="sr-only">Search products</span>
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    <input type="search" id="search" placeholder="Search products..." autocomplete="off">
+                </label>
+
+                <div class="toolbar-right">
+                    <label class="stock-toggle">
+                        <input type="checkbox" id="in-stock">
+                        In stock only
+                    </label>
+                    <label>
+                        <span class="sr-only">Sort by</span>
+                        <select id="sort">
+                            <option value="featured">Sort: Featured</option>
+                            <option value="price-asc">Price: Low to high</option>
+                            <option value="price-desc">Price: High to low</option>
+                            <option value="rating">Top rated</option>
+                            <option value="name">Name: A to Z</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Category buttons are added here by app.js -->
+            <div class="chips" id="categories" aria-label="Filter by category"></div>
+
+            <p class="result-count" id="result-count" aria-live="polite"></p>
+
+            <!-- Product cards are added here by app.js -->
+            <div class="grid" id="grid"></div>
+
+            <div class="empty" id="empty" hidden>
+                <p class="empty-emoji">🔍</p>
+                <h2>No products found</h2>
+                <p>Try a different word or category.</p>
+                <button class="btn btn-light" id="reset">Clear filters</button>
+            </div>
+
+            <noscript><p class="empty">Please turn on JavaScript to see the products.</p></noscript>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="container features">
+            <div class="feature">
+                <span>🚚</span>
+                <h3>Delivery all over Pakistan</h3>
+                <p>2 to 4 working days to most cities.</p>
+            </div>
+            <div class="feature">
+                <span>💵</span>
+                <h3>Cash on delivery</h3>
+                <p>Pay when your order arrives at your door.</p>
+            </div>
+            <div class="feature">
+                <span>🔁</span>
+                <h3>7-day returns</h3>
+                <p>Not happy? Return it within a week.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="container footer-inner">
+            <p><strong>Hashir's Tech Corner</strong><br>A practice store project built with HTML, CSS and JavaScript.</p>
+            <p>Questions? <a href="mailto:hello@example.com">hello@example.com</a></p>
+        </div>
+    </footer>
+
+    <!-- PRODUCT POPUP (the <dialog> element) -->
+    <dialog id="product-dialog" aria-labelledby="dialog-title">
+        <button class="dialog-close" id="dialog-close" aria-label="Close">&times;</button>
+        <div class="dialog-body">
+            <img id="dialog-image" src="" alt="" width="400" height="300">
+            <div>
+                <p class="card-category" id="dialog-category"></p>
+                <h2 id="dialog-title"></h2>
+                <p class="rating" id="dialog-rating"></p>
+                <p class="price" id="dialog-price"></p>
+                <p id="dialog-description"></p>
+                <ul class="feature-list" id="dialog-features"></ul>
+                <p class="stock" id="dialog-stock"></p>
+                <div class="dialog-actions" id="dialog-actions"></div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- products.js holds the data, app.js makes the page work -->
+    <script src="js/products.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
